@@ -528,6 +528,9 @@ body {
 
 .profile-gallery {
     display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+
     justify-content: flex-start;
     align-items: flex-start;
 
