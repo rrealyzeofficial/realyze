@@ -268,155 +268,57 @@
         </section>
 
 
-        <!-- =========================
-             PROFILE
-        ========================== -->
+<!-- =========================
+     PROFILE
+========================= -->
 
-        <section id="profile" class="page">
+<section id="profile" class="page">
 
-            <div class="page-container">
+    <div class="page-container">
 
-                <button
-                    class="back-button"
-                    data-page="home"
-                >
-                    ← BACK
-                </button>
+        <button
+            class="back-button"
+            data-page="home"
+        >
+            ← BACK
+        </button>
 
-                <div class="page-title">
+        <div class="page-title">
 
-                    <p>02</p>
+            <p>02</p>
 
-                    <h2>
-                        PROFILE
-                    </h2>
+            <h2>
+                PROFILE
+            </h2>
 
-                    <span>
-                        Mấy báo thủ của chúng tôi!!
-                    </span>
-
-                </div>
+        </div>
 
 
-                <div class="members">
+        <div class="profile-gallery">
 
+    <div
+        class="profile-person"
+        data-profile="members/member-01-profile.jpg"
+    >
 
-                    <!-- MEMBER 01 -->
+        <img
+            src="members/member-01-face.png"
+            alt="VANI"
+        >
 
-                    <div class="member">
+        <div class="profile-info">
 
-                        <img
-                            src="members/vani.jpg"
-                            alt="Vani"
-                        >
+            <h3>VANI</h3>
 
-                        <div class="member-overlay">
+            <p>STAFF - VOCALIST - RAPPER</p>
 
-                            <span>
-                                01
-                            </span>
+        </div>
 
-                            <h3>
-                                VANI
-                            </h3>
+    </div>
 
-                            <p>
-                                STAFF - VOCALIST - RAPPER
-                            </p>
+</div>
 
-                        </div>
-
-                    </div>
-
-
-                    <!-- MEMBER 02 -->
-
-                    <div class="member">
-
-                        <img
-                            src="members/member2.jpg"
-                            alt="Member 2"
-                        >
-
-                        <div class="member-overlay">
-
-                            <span>
-                                02
-                            </span>
-
-                            <h3>
-                                Member 02
-                            </h3>
-
-                            <p>
-                                Vocal
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- MEMBER 03 -->
-
-                    <div class="member">
-
-                        <img
-                            src="members/member3.jpg"
-                            alt="Member 3"
-                        >
-
-                        <div class="member-overlay">
-
-                            <span>
-                                03
-                            </span>
-
-                            <h3>
-                                Member 03
-                            </h3>
-
-                            <p>
-                                Vocal
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- MEMBER 04 -->
-
-                    <div class="member">
-
-                        <img
-                            src="members/member4.jpg"
-                            alt="Member 4"
-                        >
-
-                        <div class="member-overlay">
-
-                            <span>
-                                04
-                            </span>
-
-                            <h3>
-                                Member 04
-                            </h3>
-
-                            <p>
-                                Vocal
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
+</section>
 
     <!-- =========================
      GALLERY
@@ -512,6 +414,22 @@
 
 
     <script src="script.js"></script>
+
+    <div class="profile-modal" id="profileModal">
+
+    <button class="profile-modal-close" id="profileModalClose">
+        ×
+    </button>
+
+    <div class="profile-modal-image">
+        <img
+            id="profileModalImage"
+            src=""
+            alt="Profile"
+        >
+    </div>
+
+</div>
 
 </body>
 </html>

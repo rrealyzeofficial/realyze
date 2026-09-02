@@ -522,105 +522,171 @@ body {
 }
 
 
-/* =================================
+/* =========================
    PROFILE
-================================= */
+========================= */
 
-.members {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
-    gap: 25px;
-}
-
-.member {
-
-    position: relative;
-
-    aspect-ratio: 4 / 5;
-
-    overflow: hidden;
-
-    background: #F2EDDF;
-}
-
-.member img {
+.profile-gallery {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     width: 100%;
-    height: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.profile-person {
+    width: 260px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition: transform 0.5s ease;
+}
+
+.profile-person > img {
+    width: 260px;
+    height: 260px;
+
+    display: block;
+
+    border-radius: 50%;
 
     object-fit: cover;
-
-    filter: grayscale(100%);
+    object-position: center;
 
     transition:
-        transform 0.8s ease,
-        filter 0.8s ease;
+        transform 0.5s ease,
+        filter 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
-.member:hover img {
 
+/* =========================
+   TÊN + VAI TRÒ
+========================= */
+
+.profile-info {
+    margin-top: 14px;
+
+    text-align: center;
+}
+
+.profile-info h3 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 600;
+
+    letter-spacing: 0.04em;
+}
+
+.profile-info p {
+    margin: 4px 0 0;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.65;
+}
+
+
+/* =========================
+   HOVER — MÀU RIÊNG
+========================= */
+
+.profile-person:hover > img {
     transform: scale(1.04);
 
-    filter: grayscale(0%);
+    box-shadow:
+        0 0 15px #FFCDCD,
+        0 0 35px #FFCDCD,
+        0 0 70px rgba(255, 205, 205, 0.65);
+
+    filter: brightness(1.08);
 }
 
-.member-overlay {
 
-    position: absolute;
+/* =========================
+   PROFILE MODAL
+========================= */
 
+.profile-modal {
+    position: fixed;
     inset: 0;
 
-    padding: 25px;
+    z-index: 9999;
 
     display: flex;
+    justify-content: center;
+    align-items: center;
 
-    flex-direction: column;
+    padding: 30px;
 
-    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.75);
 
-    background:
-        linear-gradient(
-            transparent 50%,
-            rgba(23, 23, 23, 0.72)
-        );
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
 }
 
-.member-overlay span {
-
-    font-size: 8px;
-
-    opacity: 0.5;
-
-    margin-bottom: 8px;
+.profile-modal.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.member-overlay h3 {
+.profile-modal-image {
+    width: min(700px, 90vw);
+    max-height: 92vh;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    display: flex;
+    justify-content: center;
 
-    font-size: 35px;
+    transform: scale(0.85);
 
-    font-weight: 400;
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1);
 }
 
-.member-overlay p {
+.profile-modal.active .profile-modal-image {
+    transform: scale(1);
+}
 
-    font-size: 8px;
+.profile-modal-image img {
+    display: block;
 
-    letter-spacing: 3px;
+    width: 100%;
+    height: auto;
 
-    opacity: 0.5;
+    max-height: 92vh;
+    object-fit: contain;
+}
 
-    margin-top: 5px;
+.profile-modal-close {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    border: none;
+    background: none;
+
+    color: white;
+
+    font-size: 36px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    z-index: 2;
 }
 
 /* =================================

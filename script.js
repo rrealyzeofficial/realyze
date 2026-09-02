@@ -197,5 +197,76 @@ lyricsButtons.forEach(function (button) {
             (this.value / 100) * audio.duration;
 
     });
+// =========================
+// PROFILE MODAL
+// =========================
 
+const profilePeople =
+    document.querySelectorAll(".profile-person");
+
+const profileModal =
+    document.getElementById("profileModal");
+
+const profileModalImage =
+    document.getElementById("profileModalImage");
+
+const profileModalClose =
+    document.getElementById("profileModalClose");
+
+
+profilePeople.forEach(function (person) {
+
+    person.addEventListener("click", function () {
+
+        const profileImage =
+            this.getAttribute("data-profile");
+
+        profileModalImage.src = profileImage;
+
+        profileModal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+function closeProfileModal() {
+
+    profileModal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+profileModalClose.addEventListener(
+    "click",
+    closeProfileModal
+);
+
+
+profileModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === profileModal) {
+            closeProfileModal();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+            closeProfileModal();
+        }
+
+    }
+);
 });
