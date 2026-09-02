@@ -1,0 +1,1007 @@
+```css
+
+/* =================================
+   VANI COVER GROUP
+   MAIN STYLES
+================================= */
+
+@import url(
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Fredoka:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+);
+
+
+/* =================================
+   RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #FFFDF5;
+    color: #171717;
+
+    font-family: 'Inter', sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =================================
+   BACKGROUND
+================================= */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 92, 138, 0.10),
+            transparent 35%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.year {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.4;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.page {
+    display: none;
+
+    min-height: 100vh;
+
+    animation: pageIn 0.7s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =================================
+   HOME
+================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+.eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    opacity: 0.4;
+
+    margin-bottom: 20px;
+}
+
+.tagline {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 21px;
+
+    opacity: 0.55;
+
+    margin-bottom: 65px;
+}
+
+/* =================================
+   RƎ:ALYZE ARCH LOGO
+================================= */
+
+.brand-arch {
+
+    width: min(1100px, 96vw);
+
+    height: 400px;
+
+    display: block;
+
+    overflow: visible;
+
+    margin-top: -20px;
+
+    margin-bottom: 10px;
+
+}
+
+.brand-arch-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 145px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    fill: url(#realyze-gradient);
+}
+
+/* =================================
+   RƎ:ALYZE BRIGHT IDENTITY
+================================= */
+
+.hero h1 {
+    background: linear-gradient(90deg, #FF5C8A 0%, #FF9A5C 25%, #FFD84D 48%, #55B8FF 72%, #A98BFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: saturate(1.08);
+}
+
+.menu-button:hover { color: #FF5C8A; }
+.menu-button:hover b { color: #55B8FF; }
+
+.page-title h2 {
+    background: linear-gradient(90deg, #FF5C8A, #FF9A5C, #55B8FF, #A98BFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.background::before, .background::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.20;
+    pointer-events: none;
+}
+.background::before { width: 260px; height: 260px; top: 10%; left: 6%; background: #FF5C8A; }
+.background::after { width: 300px; height: 300px; right: 5%; bottom: 8%; background: #55B8FF; }
+
+/* =================================
+   MENU
+================================= */
+
+.menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: min(
+        420px,
+        90vw
+    );
+}
+
+.menu-button {
+
+    background: transparent;
+
+    border: none;
+
+    border-top: 1px solid
+        rgba(23, 23, 23, 0.16);
+
+    color: #171717;
+
+    padding: 20px 5px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    display: grid;
+
+    grid-template-columns:
+        50px 1fr 30px;
+
+    align-items: center;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    transition:
+        padding 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.menu-button:last-child {
+
+    border-bottom:
+        1px solid
+        rgba(23, 23, 23, 0.16);
+}
+
+.menu-button span {
+
+    font-size: 9px;
+
+    opacity: 0.3;
+}
+
+.menu-button b {
+
+    font-size: 18px;
+
+    font-weight: 300;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.menu-button:hover {
+
+    padding-left: 15px;
+}
+
+.menu-button:hover b {
+
+    transform:
+        translateX(8px);
+}
+
+
+/* =================================
+   INNER PAGES
+================================= */
+
+.page-container {
+
+    width: min(
+        1100px,
+        90%
+    );
+
+    margin: auto;
+
+    padding-top: 140px;
+
+    padding-bottom: 150px;
+}
+
+.back-button {
+
+    background: none;
+
+    border: none;
+
+    color: #171717;
+
+    cursor: pointer;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.45;
+
+    margin-bottom: 60px;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.back-button:hover {
+
+    opacity: 1;
+}
+
+.page-title {
+
+    margin-bottom: 70px;
+}
+
+.page-title p {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.35;
+
+    margin-bottom: 15px;
+}
+
+.page-title h2 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: clamp(
+        60px,
+        10vw,
+        120px
+    );
+
+    font-weight: 400;
+
+    line-height: 0.8;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+.page-title span {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 18px;
+
+    opacity: 0.45;
+}
+
+
+/* =================================
+   MUSIC
+================================= */
+
+.music-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 50px 30px;
+}
+
+.song {
+
+    cursor: pointer;
+}
+
+.cover {
+
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #F2EDDF;
+}
+
+.cover img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter: grayscale(100%);
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+.song:hover .cover img {
+
+    transform: scale(1.05);
+
+    filter: grayscale(0%);
+}
+
+
+/* PLAY BUTTON */
+
+.play-button {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(23, 23, 23, 0.55);
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    color: #171717;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease,
+        background 0.4s ease;
+}
+
+.song:hover .play-button {
+
+    opacity: 1;
+}
+
+.play-button:hover {
+
+    background: #171717;
+
+    color: #FFFDF5;
+}
+
+
+/* SONG INFO */
+
+.song-info {
+
+    display: flex;
+
+    gap: 20px;
+
+    padding-top: 18px;
+}
+
+.song-number {
+
+    font-size: 9px;
+
+    opacity: 0.3;
+}
+
+.song-info h3 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    margin-bottom: 5px;
+}
+
+.song-info p {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    opacity: 0.35;
+}
+
+
+/* =================================
+   PROFILE
+================================= */
+
+.members {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 25px;
+}
+
+.member {
+
+    position: relative;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: #F2EDDF;
+}
+
+.member img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+.member:hover img {
+
+    transform: scale(1.04);
+
+    filter: grayscale(0%);
+}
+
+.member-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    background:
+        linear-gradient(
+            transparent 50%,
+            rgba(23, 23, 23, 0.72)
+        );
+}
+
+.member-overlay span {
+
+    font-size: 8px;
+
+    opacity: 0.5;
+
+    margin-bottom: 8px;
+}
+
+.member-overlay h3 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 35px;
+
+    font-weight: 400;
+}
+
+.member-overlay p {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+
+    margin-top: 5px;
+}
+
+/* =================================
+   GALLERY
+================================= */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    max-width: 550px;
+
+}
+
+.gallery-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #151515;
+
+}
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+
+}
+
+.gallery-item:hover img {
+
+    transform: scale(1.04);
+
+    filter: grayscale(0%);
+
+}
+
+/* =================================
+   AUDIO PLAYER
+================================= */
+
+.audio-player {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: min(
+        500px,
+        90%
+    );
+
+    padding: 10px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background:
+        rgba(255,253,245,0.92);
+
+    border:
+        1px solid
+        rgba(23,23,23,0.12);
+
+    backdrop-filter:
+        blur(15px);
+
+    z-index: 200;
+}
+
+.player-info {
+
+    min-width: 110px;
+
+    overflow: hidden;
+}
+
+#now-playing {
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    opacity: 0.6;
+}
+
+#player-button {
+
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #171717;
+
+    color: #FFFDF5;
+
+    cursor: pointer;
+
+    font-size: 10px;
+}
+
+#progress {
+
+    flex: 1;
+
+    height: 2px;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+
+    position: fixed;
+
+    bottom: 8px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.2;
+
+    pointer-events: none;
+}
+
+footer span {
+
+    margin: 0 10px;
+}
+
+
+/* =================================
+   ANIMATION
+================================= */
+
+@keyframes pageIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .header {
+
+        padding: 20px;
+    }
+
+    .hero {
+
+        padding: 25px;
+    }
+
+    .hero h1 {
+
+        font-size: 110px;
+
+        letter-spacing: -5px;
+    }
+
+    .music-list {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .members {
+
+        grid-template-columns: 1fr;
+    }
+
+    .page-container {
+
+        padding-top: 110px;
+    }
+
+    .audio-player {
+
+        bottom: 25px;
+    }
+
+    .player-info {
+
+        min-width: 70px;
+    }
+
+}
+
+/* =================================
+   LYRICS
+================================= */
+
+.lyrics-button {
+
+    margin-top: 14px;
+
+    padding: 6px 10px;
+
+    background: transparent;
+
+    border: 1px solid rgba(23, 23, 23, 0.25);
+
+    color: inherit;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.8px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.lyrics-button:hover {
+
+    background: #171717;
+
+    color: #FFFDF5;
+
+    border-color: #171717;
+
+}
+
+
+/* Khung lyrics */
+
+.lyrics-content {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    margin-top: 0;
+
+    transition:
+        max-height 0.6s ease,
+        opacity 0.4s ease,
+        margin-top 0.4s ease;
+
+}
+
+
+/* Khi mở */
+
+.song.lyrics-open .lyrics-content {
+
+    max-height: 420px;
+
+    overflow-y: auto;
+
+    opacity: 0.75;
+
+    margin-top: 22px;
+
+    padding-right: 12px;
+
+}
+
+
+/* Text lyrics */
+
+.lyrics-content {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    white-space: pre-line;
+
+}
+
+
+/* Ẩn scrollbar */
+
+.lyrics-content::-webkit-scrollbar {
+
+    width: 0;
+
+}
+
+.lyrics-content {
+
+    scrollbar-width: none;
+
+}
+
+```
+
