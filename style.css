@@ -59,45 +59,6 @@ body {
 
 
 /* =================================
-   HEADER
-================================= */
-
-.header {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    padding: 30px 5%;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    z-index: 100;
-}
-
-.logo img {
-    width: 100px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-}
-
-.year {
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    opacity: 0.4;
-}
-
-
-/* =================================
    PAGE
 ================================= */
 
@@ -117,6 +78,22 @@ body {
 /* =================================
    HOME
 ================================= */
+
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.hero-logo img {
+    width: min(520px, 70vw);
+    height: auto;
+
+    display: block;
+}
 
 .hero {
 
