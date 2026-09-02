@@ -1049,5 +1049,76 @@ footer span {
 
 }
 
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.social-links {
+    position: fixed !important;
+
+    right: 24px !important;
+    left: auto !important;
+
+    bottom: 24px !important;
+    top: auto !important;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    width: auto;
+
+    z-index: 9999;
+}
+
+.social-link {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+}
+
+.social-link img {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+    display: block;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+}
+
+/* YouTube */
+
+.social-link.youtube:hover {
+    color: #FFCDCD;
+
+    box-shadow:
+        0 0 15px rgba(255, 205, 205, 0.7);
+}
+
+/* TikTok */
+
+.social-link.tiktok:hover {
+    color: #BFA8FF;
+
+    box-shadow:
+        0 0 15px rgba(191, 168, 255, 0.7);
+}
+
+
 ```
 
