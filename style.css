@@ -109,13 +109,15 @@ img { max-width: 100%; }
     color: #716b7d;
 }
 .menu {
-    width: min(740px, 92vw);
+    width: min(960px, 94vw);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
 }
 .menu-button {
-    min-height: 178px;
+    min-height: 168px;
+    color: var(--ink);
+    text-decoration: none;
     padding: 22px;
     border: 1px solid rgba(255,255,255,.9);
     border-radius: var(--radius-lg);
@@ -139,6 +141,10 @@ img { max-width: 100%; }
 .menu-button:nth-child(1):hover { box-shadow: 0 26px 65px rgba(255,106,155,.18); }
 .menu-button:nth-child(2):hover { box-shadow: 0 26px 65px rgba(105,184,255,.18); }
 .menu-button:nth-child(3):hover { box-shadow: 0 26px 65px rgba(170,145,255,.18); }
+.menu-button:nth-child(4):hover { box-shadow: 0 26px 65px rgba(116,226,194,.22); }
+.menu-game { position:relative; overflow:hidden; }
+.menu-game::after { content:'PLAY'; position:absolute; right:18px; bottom:16px; font-size:8px; font-weight:700; letter-spacing:.18em; color:rgba(22,20,29,.28); }
+.menu-game::before { content:''; position:absolute; width:110px; height:110px; border-radius:50%; right:-42px; bottom:-48px; background:radial-gradient(circle, rgba(116,226,194,.26), rgba(116,226,194,0) 70%); pointer-events:none; }
 .hero-foot { margin-top: 42px; width: min(740px, 92vw); display: flex; align-items: center; gap: 14px; font-size: 9px; letter-spacing: .18em; color: var(--muted); }
 .hero-line { height: 1px; flex: 1; background: var(--line); }
 
