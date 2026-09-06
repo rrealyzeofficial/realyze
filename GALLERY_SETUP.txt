@@ -1,0 +1,19 @@
+RƎ:ALYZE COMMUNITY GALLERY — SETUP
+
+Gallery cộng đồng cần một nơi lưu ảnh online. Bản này dùng Supabase.
+
+1. Mở Supabase > SQL Editor.
+2. Chạy toàn bộ file gallery_setup.sql.
+3. Mở Project Settings / API và lấy:
+   - Project URL
+   - anon / publishable public key
+4. Mở supabase-config.js và điền 2 giá trị đó.
+5. Upload website lên hosting (Netlify/Vercel/GitHub Pages/hosting của bạn).
+
+Sau đó người có link website có thể bấm UPLOAD IMAGE và ảnh sẽ xuất hiện cho mọi người.
+
+LƯU Ý:
+- Đây là gallery mở: ai truy cập được link đều có thể đăng ảnh.
+- Không dùng service_role key trong supabase-config.js.
+- File ảnh giới hạn 8 MB, chỉ JPG/PNG/WEBP.
+- Policy hiện tại chỉ cho khách đọc + đăng mới, không cho khách sửa/xóa.

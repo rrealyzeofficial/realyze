@@ -3,456 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#f7f4ff">
     <title>RƎ:ALYZE — COVER GROUP</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="background" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+        <span class="noise"></span>
+    </div>
 
-    <!-- =========================
-         BACKGROUND
-    ========================== -->
-
-    <div class="background"></div>
-
-
-    <!-- =========================
-         HOME
-    ========================== -->
+    <header class="site-header">
+        <button class="brand-button" data-page="home" aria-label="Về trang chủ">
+            <img src="images/logo.png" alt="RƎ:ALYZE">
+        </button>
+        <div class="header-right">
+            <span class="header-label">COVER GROUP</span>
+            <span class="status-dot" aria-hidden="true"></span>
+        </div>
+    </header>
 
     <main>
-
         <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-kicker reveal">RƎ:ALYZE / PRIVATE SPACE</div>
 
-    <div class="hero">
-
-        <div class="hero-logo">
-            <img
-                src="images/logo.png"
-                alt="RƎ:ALYZE"
-            >
-        </div>
-
-                <p class="tagline">
-                    NGON!! BÚ!! HÚP!!
-                </p>
-
-                <div class="menu">
-
-                    <button
-                        class="menu-button"
-                        data-page="music"
-                    >
-                        <span>01</span>
-                        MUSIC
-                        <b>→</b>
-                    </button>
-
-                    <button
-                        class="menu-button"
-                        data-page="profile"
-                    >
-                        <span>02</span>
-                        PROFILE
-                        <b>→</b>
-                    </button>
-
-                    <button 
-                        class="menu-button" data-page="gallery" 
-                    > 
-                        <span>03</span> 
-                        GALLERY 
-                        <b>→</b> 
-                    </button>
-
+                <div class="hero-logo reveal">
+                    <img src="images/logo.png" alt="RƎ:ALYZE">
                 </div>
 
+                <p class="tagline reveal">NGON!! BÚ!! HÚP!!</p>
+
+                <nav class="menu reveal" aria-label="Điều hướng chính">
+                    <button class="menu-button" data-page="music">
+                        <span class="menu-number">01</span>
+                        <span class="menu-copy">
+                            <strong>MUSIC</strong>
+                            <small>Listen to our covers</small>
+                        </span>
+                        <span class="menu-arrow">↗</span>
+                    </button>
+
+                    <button class="menu-button" data-page="profile">
+                        <span class="menu-number">02</span>
+                        <span class="menu-copy">
+                            <strong>PROFILE</strong>
+                            <small>Meet the members</small>
+                        </span>
+                        <span class="menu-arrow">↗</span>
+                    </button>
+
+                    <button class="menu-button" data-page="gallery">
+                        <span class="menu-number">03</span>
+                        <span class="menu-copy">
+                            <strong>GALLERY</strong>
+                            <small>Saved moments</small>
+                        </span>
+                        <span class="menu-arrow">↗</span>
+                    </button>
+                </nav>
+
+                <div class="hero-foot reveal">
+                    <span>SCROLL / EXPLORE</span>
+                    <span class="hero-line"></span>
+                    <span>2026</span>
+                </div>
+
+                <section class="latest-release reveal" aria-label="Latest release">
+                    <div class="latest-cover"><img src="covers/song-03.jpg" alt="Crash the Party"></div>
+                    <div class="latest-copy">
+                        <span class="latest-label">LATEST RELEASE · 03</span>
+                        <h2>CRASH THE PARTY</h2>
+                        <p>RƎ:ALYZE <span>but Eke & Hikari & Shoto</span></p>
+                    </div>
+                    <button class="latest-play" data-play-index="2">PLAY NOW <span>▶</span></button>
+                    <button class="latest-more" data-page="music">VIEW DISCOGRAPHY ↗</button>
+                </section>
             </div>
-
         </section>
-
-
-        <!-- =========================
-             MUSIC
-        ========================== -->
 
         <section id="music" class="page">
-
             <div class="page-container">
+                <button class="back-button" data-page="home">← HOME</button>
 
-                <button
-                    class="back-button"
-                    data-page="home"
-                >
-                    ← BACK
-                </button>
-
-                <div class="page-title">
-
-                    <p>01</p>
-
-                    <h2>
-                        MUSIC
-                    </h2>
-
-                    <span>
-                        Mấy bài hát mà mọi người có thể nghe nẻ!!
-                    </span>
-
+                <div class="page-heading">
+                    <div>
+                        <p class="section-index">01 / MUSIC</p>
+                        <h2>PLAYLIST</h2>
+                    </div>
+                    <p class="section-description">Mấy bài hát mà mọi người có thể nghe nè!!</p>
                 </div>
 
+                <div class="music-toolbar">
+                    <div class="music-filters" role="group" aria-label="Music filters">
+                        <button class="filter-button active" data-filter="all">ALL</button>
+                        <button class="filter-button" data-filter="group">RƎ:ALYZE</button>
+                        <button class="filter-button" data-filter="solo">SOLO</button>
+                    </div>
+                    <div class="discography-stat"><strong>03</strong><span>RELEASES / 2026</span></div>
+                </div>
 
                 <div class="music-list">
-
-
-                    <!-- SONG 01 -->
-
-                    <article class="song">
-
+                    <article class="song" data-category="group">
                         <div class="cover">
-
-                            <img
-                                src="covers/song-01.jpg"
-                                alt="Song 01"
-                            >
-
-                            <button
-                                class="play-button"
-                                data-song="music/song-01.mp3"
-                            >
-                                ▶
-                            </button>
-
+                            <img src="covers/song-01.jpg" alt="Virtual to Live">
+                            <div class="cover-shade"></div>
+                            <button class="play-button" data-song="music/song-01.mp3" aria-label="Phát Virtual to Live">▶</button>
+                            <span class="cover-number">01</span>
                         </div>
-
                         <div class="song-info">
-
-                            <span class="song-number">
-                                01
-                            </span>
-
                             <div>
-
-                                <h3>
-                                    VIRTUAL TO LIVE
-                                </h3>
-
-                                <p>
-                                    RƎ:ALYZE (but Ebi & Mikon)
-                                </p>
-
+                                <p class="song-meta">RƎ:ALYZE (but Ebi & Mikon)</p>
+                                <h3>VIRTUAL TO LIVE</h3>
                             </div>
-
+                            <button class="lyrics-button" data-lyrics="lyrics/song-01.txt">LYRICS +</button>
                         </div>
-                        <button
-    class="lyrics-button"
-    data-lyrics="lyrics/song-01.txt"
->
-    LYRICS
-</button>
-
-<div class="lyrics-content"></div>
-
+                        <div class="song-credits"><span>COVER BY</span><strong>RƎ:ALYZE (but Ebi &amp; Mikon)</strong></div>
+                        <div class="lyrics-content"></div>
                     </article>
 
-
-                    <!-- SONG 02 -->
-
-                    <article class="song">
-
+                    <article class="song" data-category="solo">
                         <div class="cover">
-
-                            <img
-                                src="covers/song-02.jpg"
-                                alt="Song 02"
-                            >
-
-                            <button
-                                class="play-button"
-                                data-song="music/song-02.mp3"
-                            >
-                                ▶
-                            </button>
-
+                            <img src="covers/song-02.jpg" alt="Bounce">
+                            <div class="cover-shade"></div>
+                            <button class="play-button" data-song="music/song-02.mp3" aria-label="Phát Bounce">▶</button>
+                            <span class="cover-number">02</span>
                         </div>
-
                         <div class="song-info">
-
-                            <span class="song-number">
-                                02
-                            </span>
-
                             <div>
-
-                                <h3>
-                                    BOUNCE (COVERED BY VANI)
-                                </h3>
-
-                                <p>
-                                    VANI
-                                </p>
-
+                                <p class="song-meta">VANI</p>
+                                <h3>BOUNCE <span>(COVERED BY VANI)</span></h3>
                             </div>
-
+                            <button class="lyrics-button" data-lyrics="lyrics/song-02.txt">LYRICS +</button>
                         </div>
-
-                        <button
-    class="lyrics-button"
-    data-lyrics="lyrics/song-02.txt"
->
-    LYRICS
-</button>
-
-<div class="lyrics-content"></div>
-
+                        <div class="song-credits"><span>COVER BY</span><strong>VANI</strong></div>
+                        <div class="lyrics-content"></div>
                     </article>
 
-
-                    <!-- SONG 03 -->
-
-                    <article class="song">
-
+                    <article class="song" data-category="group">
                         <div class="cover">
-
-                            <img
-                                src="covers/song-03.jpg"
-                                alt="Song 03"
-                            >
-
-                            <button
-                                class="play-button"
-                                data-song="music/song-03.mp3"
-                            >
-                                ▶
-                            </button>
-
+                            <img src="covers/song-03.jpg" alt="Crash the Party">
+                            <div class="cover-shade"></div>
+                            <button class="play-button" data-song="music/song-03.mp3" aria-label="Phát Crash the Party">▶</button>
+                            <span class="cover-number">03</span>
                         </div>
-
                         <div class="song-info">
-
-                            <span class="song-number">
-                                03
-                            </span>
-
                             <div>
-
-                                <h3>
-                                    CRASH THE PARTY
-                                </h3>
-
-                                <p>
-                                    RƎ:ALYZE (but Eke & Hikari & Shoto)
-                                </p>
-
+                                <p class="song-meta">RƎ:ALYZE (but Eke & Hikari & Shoto)</p>
+                                <h3>CRASH THE PARTY</h3>
                             </div>
-
+                            <button class="lyrics-button" data-lyrics="lyrics/song-03.txt">LYRICS +</button>
                         </div>
-
-                        <button
-    class="lyrics-button"
-    data-lyrics="lyrics/song-03.txt"
->
-    LYRICS
-</button>
-
-<div class="lyrics-content"></div>
-
+                        <div class="song-credits"><span>COVER BY</span><strong>RƎ:ALYZE (but Eke &amp; Hikari &amp; Shoto)</strong></div>
+                        <div class="lyrics-content"></div>
                     </article>
-
                 </div>
-
             </div>
-
         </section>
 
+        <section id="profile" class="page">
+            <div class="page-container">
+                <button class="back-button" data-page="home">← HOME</button>
 
-<!-- =========================
-     PROFILE
-========================= -->
+                <div class="page-heading">
+                    <div>
+                        <p class="section-index">02 / PROFILE</p>
+                        <h2>MEMBERS</h2>
+                    </div>
+                    <p class="section-description">A little corner for the people behind RƎ:ALYZE.</p>
+                </div>
 
-<section id="profile" class="page">
-
-    <div class="page-container">
-
-        <button
-            class="back-button"
-            data-page="home"
-        >
-            ← BACK
-        </button>
-
-        <div class="page-title">
-
-            <p>02</p>
-
-            <h2>
-                PROFILE
-            </h2>
-
-        </div>
-
-
-        <div class="profile-gallery">
-
-    <div
-        class="profile-person"
-        data-profile="members/member-01-profile.jpg"
-    >
-
-        <img
-            src="members/member-01-face.png"
-            alt="VANI"
-        >
-
-        <div class="profile-info">
-
-            <h3>VANI</h3>
-
-            <p>STAFF - VOCALIST - RAPPER</p>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-    <!-- =========================
-     GALLERY
-    ========================== -->
-
-<section id="gallery" class="page">
-
-    <div class="page-container">
-
-        <button
-            class="back-button"
-            data-page="home"
-        >
-            ← BACK
-        </button>
-
-        <div class="page-title">
-
-            <p>03</p>
-
-            <h2>
-                GALLERY
-            </h2>
-
-            <span>
-                Khoảnh khắc xứng đáng "ăn phốt"
-            </span>
-
-        </div>
-
-        <div class="gallery">
-
-            <div class="gallery-item">
-
-                <img
-                    src="gallery/photo-01.jpg"
-                    alt="Gallery 01"
-                >
-
-                                <img
-                    src="gallery/photo-02.jpg"
-                    alt="Gallery 02"
-                >
-
+                <div class="profile-gallery">
+                    <button class="profile-person" data-profile="members/member-01-profile.jpg" data-name="VANI" data-role="STAFF · VOCALIST · RAPPER" data-featured="BOUNCE">
+                        <span class="profile-image-wrap">
+                            <img src="members/member-01-face.png" alt="VANI">
+                            <span class="profile-view">VIEW PROFILE ↗</span>
+                        </span>
+                        <span class="profile-info">
+                            <span class="profile-name">VANI</span>
+                            <span class="profile-role">STAFF · VOCALIST · RAPPER</span>
+                        </span>
+                    </button>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <section id="gallery" class="page">
+            <div class="page-container">
+                <button class="back-button" data-page="home">← HOME</button>
 
-    </div>
+                <div class="page-heading">
+                    <div>
+                        <p class="section-index">03 / GALLERY</p>
+                        <h2>MOMENTS</h2>
+                    </div>
+                    <p class="section-description">Khoảnh khắc xứng đáng “ăn phốt”.</p>
+                </div>
 
-</section>
+                <div class="gallery-actions">
+                    <div>
+                        <span class="gallery-kicker">COMMUNITY GALLERY</span>
+                        <p>Ai có link trang cũng có thể gửi ảnh vào gallery này.</p>
+                    </div>
+                    <button class="gallery-upload-open" id="galleryUploadOpen">＋ UPLOAD IMAGE</button>
+                </div>
 
+                <div class="gallery-grid" id="galleryGrid">
+                    <figure class="gallery-item">
+                        <img src="gallery/photo-01.jpg" alt="Gallery 01">
+                        <figcaption><span>01</span><span>RƎ:ALYZE ARCHIVE</span></figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="gallery/photo-02.jpg" alt="Gallery 02">
+                        <figcaption><span>02</span><span>RƎ:ALYZE ARCHIVE</span></figcaption>
+                    </figure>
+                </div>
+                <p class="gallery-status" id="galleryStatus"></p>
+            </div>
+        </section>
     </main>
 
- 
-    <!-- =========================
-         AUDIO PLAYER
-    ========================== -->
-
-    <div class="audio-player">
-
-        <div class="player-info">
-
-            <span id="now-playing">
-                Nothing playing
-            </span>
-
+    <div class="audio-player" id="audioPlayer">
+        <div class="player-cover"><img id="player-cover" src="covers/song-01.jpg" alt=""></div>
+        <div class="player-controls">
+            <button id="prev-button" aria-label="Bài trước">‹</button>
+            <button id="player-button" aria-label="Phát hoặc tạm dừng">▶</button>
+            <button id="next-button" aria-label="Bài tiếp">›</button>
         </div>
-
+        <div class="player-main">
+            <div class="player-topline"><span class="player-label">NOW PLAYING</span><span id="now-playing">Choose a song</span></div>
+            <div class="progress-row"><span id="current-time">00:00</span><input type="range" id="progress" min="0" max="100" value="0" aria-label="Tiến trình bài hát"><span id="duration-display">00:00</span></div>
+        </div>
+        <button id="random-button" class="player-mini" aria-label="Phát ngẫu nhiên">↝</button>
+        <div class="volume-wrap"><span>VOL</span><input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Âm lượng"></div>
         <audio id="audio"></audio>
-
-        <button id="player-button">
-            ▶
-        </button>
-
-        <input
-            type="range"
-            id="progress"
-            min="0"
-            max="100"
-            value="0"
-        >
-
     </div>
 
-    <a
-    href="https://www.youtube.com/@realize-ent"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="social-link"
->
-    <img src="images/youtube.png" alt="YouTube">
-</a>
-
-<a
-    href="https://www.tiktok.com/@realyzefromrlt?_r=1&_t=ZS-99OVw0wxaVj"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="social-link"
->
-    <img src="images/tiktok.png" alt="TikTok">
-</a>
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <div class="social-links">
+        <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+            <img src="images/youtube.png" alt="">
+        </a>
+        <a href="https://www.tiktok.com/@realyzefromrlt?_r=1&_t=ZS-99OVw0wxaVj" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+            <img src="images/tiktok.png" alt="">
+        </a>
+    </div>
 
     <footer>
-
-        RƎ:ALYZE COVER GROUP
-        <span>•</span>
-        PRIVATE SPACE
-
+        <span>RƎ:ALYZE COVER GROUP</span>
+        <span>PRIVATE SPACE</span>
     </footer>
 
-
-    <script src="script.js"></script>
-
-    <div class="profile-modal" id="profileModal">
-
-    <button class="profile-modal-close" id="profileModalClose">
-        ×
-    </button>
-
-    <div class="profile-modal-image">
-        <img
-            id="profileModalImage"
-            src=""
-            alt="Profile"
-        >
+    <div class="profile-modal" id="profileModal" aria-hidden="true">
+        <button class="profile-modal-close" id="profileModalClose" aria-label="Đóng">×</button>
+        <div class="profile-modal-card">
+            <div class="profile-modal-image"><img id="profileModalImage" src="" alt="Profile"></div>
+            <div class="profile-modal-copy">
+                <span class="modal-kicker">RƎ:ALYZE / MEMBER FILE</span>
+                <h2 id="profileModalName">VANI</h2>
+                <p id="profileModalRole" class="modal-role"></p>
+                <div class="modal-divider"></div>
+                <div class="modal-fact"><span>FEATURED COVER</span><strong id="profileModalFeatured"></strong></div>
+                <button class="modal-song-link" data-page="music">GO TO MUSIC ↗</button>
+            </div>
+        </div>
     </div>
 
-</div>
 
+    <div class="gallery-upload-modal" id="galleryUploadModal" aria-hidden="true">
+        <div class="gallery-upload-card">
+            <button class="gallery-upload-close" id="galleryUploadClose" aria-label="Đóng">×</button>
+            <span class="modal-kicker">RƎ:ALYZE / COMMUNITY GALLERY</span>
+            <h2>POST A MOMENT</h2>
+            <p class="upload-note">Chọn ảnh JPG / PNG / WEBP, tối đa 8 MB.</p>
+            <label class="upload-field">
+                <span>YOUR NAME</span>
+                <input id="galleryUploaderName" type="text" maxlength="32" placeholder="Anonymous">
+            </label>
+            <label class="upload-field">
+                <span>CAPTION</span>
+                <input id="galleryCaption" type="text" maxlength="80" placeholder="Một câu ngắn về bức ảnh...">
+            </label>
+            <label class="upload-dropzone" for="galleryFile">
+                <input id="galleryFile" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                <strong id="galleryFileLabel">CHOOSE IMAGE</strong>
+                <small>Click để chọn ảnh</small>
+            </label>
+            <button class="gallery-submit" id="gallerySubmit">UPLOAD</button>
+            <p class="upload-message" id="galleryUploadMessage"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-```
