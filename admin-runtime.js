@@ -457,6 +457,36 @@
     );
   }
 
+
+  async function translateTexts(texts, target) {
+    const c = getConfig();
+    const accessToken = await token();
+
+    if (!Array.isArray(texts) || !texts.length) {
+      return [];
+    }
+
+    const response = await fetch(
+      c.url + "/functions/v1/translate-content",
+      {
+        method: "POST",
+        headers: apiHeaders(accessToken, true),
+        body: JSON.stringify({
+          texts: texts,
+          target: target
+        })
+      }
+    );
+
+    const data = await parseResponse(response);
+
+    if (!data || !Array.isArray(data.translations)) {
+      throw new Error("Translation function returned invalid data.");
+    }
+
+    return data.translations;
+  }
+
   window.RealyzeAdmin = {
     ADMIN_EMAIL,
     getConfig,
@@ -473,6 +503,7 @@
     remove,
     rpc,
     checkAdminPermission,
-    upload
+    upload,
+    translateTexts
   };
 })();

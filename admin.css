@@ -300,80 +300,63 @@
 }
 
 
-/* ===== PASSWORD STATUS ===== */
-.password-status{
-  min-height:42px;
-  margin-top:12px;
-  padding:10px 13px;
-  border:1px solid var(--line);
-  border-radius:14px;
+/* ===== ABOUT MANAGER / FOUR ADMIN SECTIONS ===== */
+.admin-dashboard-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+@media(max-width:850px){
+  .admin-dashboard-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:760px){
+  .admin-nav-link[href*="about"]::after{
+    content:"A";
+    font-size:.8rem;
+  }
+}
+
+
+/* ===== AUTO TRANSLATE ===== */
+.admin-translate-bar{
   display:flex;
   align-items:center;
-  gap:9px;
-  font-size:.78rem;
-  font-weight:800;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:13px 14px;
+  margin-bottom:4px;
+  border:1px solid #ded1e1;
+  border-radius:16px;
+  background:linear-gradient(135deg,#fbf7fc,#f3eaf7);
+}
+
+.admin-translate-btn{
+  border:0;
+  border-radius:999px;
+  padding:10px 16px;
+  background:#b57da8;
+  color:white;
+  font-family:var(--round);
+  font-weight:900;
+  cursor:pointer;
   transition:.18s ease;
 }
 
-.password-status-dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  flex:0 0 auto;
-  background:#aaa1ad;
+.admin-translate-btn:hover{
+  transform:translateY(-1px);
+  background:#a96f9c;
 }
 
-.password-status-idle{
-  background:#f8f5f9;
-  color:#847b87;
+.admin-translate-btn:disabled{
+  opacity:.6;
+  cursor:wait;
+  transform:none;
 }
 
-.password-status-checking{
-  background:#f5f1fb;
-  border-color:#d7cbe5;
-  color:#786b8c;
-}
-
-.password-status-checking .password-status-dot{
-  background:#9a85bd;
-  box-shadow:0 0 0 4px rgba(154,133,189,.12);
-  animation:passwordPulse .8s ease-in-out infinite alternate;
-}
-
-.password-status-correct{
-  background:#eaf8ef;
-  border-color:#b8dfc4;
-  color:#39764b;
-}
-
-.password-status-correct .password-status-dot{
-  background:#4ca367;
-  box-shadow:0 0 0 4px rgba(76,163,103,.12);
-}
-
-.password-status-wrong{
-  background:#fff0f2;
-  border-color:#efc3ca;
-  color:#b44252;
-}
-
-.password-status-wrong .password-status-dot{
-  background:#d55264;
-  box-shadow:0 0 0 4px rgba(213,82,100,.11);
-}
-
-.password-status-warning{
-  background:#fff8e8;
-  border-color:#ead6a8;
-  color:#8b6c27;
-}
-
-.password-status-warning .password-status-dot{
-  background:#d29b35;
-  box-shadow:0 0 0 4px rgba(210,155,53,.11);
-}
-
-@keyframes passwordPulse{
-  from{transform:scale(.85);opacity:.7}
-  to{transform:scale(1.12);opacity:1}
+.admin-translate-status{
+  color:#766b7a;
+  font-size:.76rem;
+  font-weight:800;
 }

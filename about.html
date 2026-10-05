@@ -30,28 +30,19 @@
     <button type="button" data-lang="ja">JP</button>
   </div>
   <div class="header-socials">
-    <a href="#" aria-label="X"><img src="assets/icons/x.svg" alt=""></a>
-    <a href="#" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt=""></a>
-    <a href="#" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""></a>
+    <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="assets/icons/x.svg" alt=""></a>
+    <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt=""></a>
+    <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""></a>
   </div>
 </header>
 
 <main>
   <section class="page-hero">
-    <small data-i18n="about.kicker">ABOUT</small>
-    <h1 data-i18n="about.title">About RƎ:ALYZE</h1>
-    <p data-i18n="about.desc">Trang riêng dành cho phần giới thiệu nhóm, ý nghĩa tên RƎ:ALYZE và concept tổng thể.</p>
+    <small>ABOUT</small>
+    <h1 id="aboutPageTitle">RƎ:ALYZE</h1>
+    <p id="aboutPageDesc"></p>
   </section>
-  <section class="content-shell">
-    <article class="info-panel">
-      <h2>RƎ:ALYZE</h2>
-      <p data-i18n="about.body1">RƎ:ALYZE là một nhóm cover Việt Nam tập trung vào J-pop, Vocaloid và phong cách Utaite. Mỗi thành viên có một màu sắc riêng, cùng tạo nên những dự án âm nhạc chung của nhóm.</p>
-    </article>
-    <article class="info-panel">
-      <h2>RE:SONANCE</h2>
-      <p data-i18n="about.body2">Đây là không gian để bạn viết phần ý nghĩa chính thức của RE:SONANCE, slogan của nhóm và cách các thành viên được kết nối với nhau.</p>
-    </article>
-  </section>
+  <section class="content-shell" id="dynamicAbout"></section>
 </main>
 
 <footer>
@@ -61,5 +52,6 @@
 </footer>
 <script src="script.js"></script>
 
+<script src="site-data.js"></script>
 </body>
 </html>
