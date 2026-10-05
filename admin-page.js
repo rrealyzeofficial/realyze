@@ -41,6 +41,7 @@
   function tableName() {
     if (section === "news") return "site_news";
     if (section === "music") return "site_songs";
+    if (section === "members") return "site_members";
     if (section === "rules") return "site_rules";
     return "site_about";
   }
@@ -121,6 +122,9 @@
       } else if (section === "music") {
         params.order =
           "release_date.desc.nullslast,created_at.desc";
+      } else if (section === "members") {
+        params.order =
+          "sort_order.asc,name.asc";
       } else if (section === "rules") {
         params.order =
           "sort_order.asc,created_at.asc";
@@ -192,6 +196,8 @@
           const title =
             section === "music"
               ? item.title
+              : section === "members"
+              ? item.name
               : item.title_vi || "Untitled";
 
           const meta =
@@ -202,6 +208,13 @@
                   (item.singers || "—") +
                   (item.release_date
                     ? " · " + item.release_date
+                    : "")
+                )
+              : section === "members"
+              ? (
+                  (item.japanese || "—") +
+                  (item.romaji
+                    ? " · " + item.romaji
                     : "")
                 )
               : "Thứ tự: " +
@@ -235,11 +248,27 @@
             "</p>" +
             "</div>" +
             '<span class="admin-status ' +
-            (item.is_published ? "" : "off") +
+            (
+              (section === "members"
+                ? item.is_active
+                : item.is_published)
+                ? ""
+                : "off"
+            ) +
             '">' +
-            (item.is_published
-              ? "Published"
-              : "Draft") +
+            (
+              section === "members"
+                ? (
+                    item.is_active
+                      ? "Visible"
+                      : "Hidden"
+                  )
+                : (
+                    item.is_published
+                      ? "Published"
+                      : "Draft"
+                  )
+            ) +
             "</span>" +
             "</article>"
           );
@@ -363,12 +392,38 @@
   }
 
 
+  function activeField(value) {
+    return (
+      '<div class="admin-field full">' +
+      '<label class="admin-check">' +
+      '<input name="is_active" type="checkbox" ' +
+      (value !== false ? "checked" : "") +
+      ">" +
+      " Hiển thị thành viên ngoài website" +
+      "</label>" +
+      "</div>"
+    );
+  }
+
+
+
   function translateBar() {
     if (section === "music") {
       return (
         '<div class="admin-translate-bar full">' +
         '<button class="admin-translate-btn" id="autoTranslateBtn" type="button">' +
         'Dịch tự động mô tả VI → EN + JP' +
+        '</button>' +
+        '<span class="admin-translate-status" id="autoTranslateStatus"></span>' +
+        '</div>'
+      );
+    }
+
+    if (section === "members") {
+      return (
+        '<div class="admin-translate-bar full">' +
+        '<button class="admin-translate-btn" id="autoTranslateBtn" type="button">' +
+        'Dịch Quote + Hobby VI → EN + JP' +
         '</button>' +
         '<span class="admin-translate-status" id="autoTranslateStatus"></span>' +
         '</div>'
@@ -455,6 +510,23 @@
           source: "description_vi",
           en: "description_en",
           ja: "description_ja",
+          rich: false
+        }
+      ];
+    }
+
+    if (section === "members") {
+      return [
+        {
+          source: "quote_vi",
+          en: "quote_en",
+          ja: "quote_ja",
+          rich: false
+        },
+        {
+          source: "hobby_vi",
+          en: "hobby_en",
+          ja: "hobby_ja",
           rich: false
         }
       ];
@@ -626,6 +698,8 @@
       button.textContent =
         section === "music"
           ? "Dịch tự động mô tả VI → EN + JP"
+          : section === "members"
+          ? "Dịch Quote + Hobby VI → EN + JP"
           : "Dịch tự động VI → EN + JP";
     }
   }
@@ -740,6 +814,97 @@
           item.description_ja
         ) +
         publishField(item.is_published);
+    }
+
+    if (section === "members") {
+      html +=
+        inputField(
+          "Tên",
+          "name",
+          item.name
+        ) +
+        inputField(
+          "Tên tiếng Nhật",
+          "japanese",
+          item.japanese
+        ) +
+        inputField(
+          "Romaji",
+          "romaji",
+          item.romaji
+        ) +
+        inputField(
+          "Ngày sinh",
+          "birthday",
+          item.birthday
+        ) +
+        inputField(
+          "Màu chủ đạo (#HEX)",
+          "color",
+          item.color || "#cccccc"
+        ) +
+        inputField(
+          "Thứ tự hiển thị",
+          "sort_order",
+          item.sort_order == null
+            ? 0
+            : item.sort_order,
+          "number"
+        ) +
+        imageField(
+          item.image_url
+        ) +
+        textareaField(
+          "Quote / Giới thiệu (VI)",
+          "quote_vi",
+          item.quote_vi
+        ) +
+        textareaField(
+          "Quote / Introduction (EN)",
+          "quote_en",
+          item.quote_en
+        ) +
+        textareaField(
+          "Quote / 自己紹介 (JP)",
+          "quote_ja",
+          item.quote_ja
+        ) +
+        textareaField(
+          "Sở thích (VI)",
+          "hobby_vi",
+          item.hobby_vi
+        ) +
+        textareaField(
+          "Hobby (EN)",
+          "hobby_en",
+          item.hobby_en
+        ) +
+        textareaField(
+          "趣味 (JP)",
+          "hobby_ja",
+          item.hobby_ja
+        ) +
+        inputField(
+          "X",
+          "x_url",
+          item.x_url,
+          "url"
+        ) +
+        inputField(
+          "YouTube",
+          "youtube_url",
+          item.youtube_url,
+          "url"
+        ) +
+        inputField(
+          "TikTok",
+          "tiktok_url",
+          item.tiktok_url,
+          "url"
+        ) +
+        activeField(
+          item.is_active
+        );
     }
 
     if (section === "rules") {
@@ -976,7 +1141,9 @@
     buildEditor(item);
 
     deleteBtn.hidden =
-      !id || section === "about";
+      !id ||
+      section === "about" ||
+      section === "members";
 
     editorModal.showModal();
   }
@@ -1141,6 +1308,96 @@
             is_published:
               formData.get(
                 "is_published"
+              ) === "on"
+          };
+        }
+
+
+        if (section === "members") {
+          payload = {
+            name:
+              String(
+                formData.get("name") ||
+                ""
+              ).trim(),
+            japanese:
+              String(
+                formData.get("japanese") ||
+                ""
+              ).trim() || null,
+            romaji:
+              String(
+                formData.get("romaji") ||
+                ""
+              ).trim() || null,
+            birthday:
+              String(
+                formData.get("birthday") ||
+                ""
+              ).trim() || null,
+            quote_vi:
+              String(
+                formData.get("quote_vi") ||
+                ""
+              ).trim() || null,
+            quote_en:
+              String(
+                formData.get("quote_en") ||
+                ""
+              ).trim() || null,
+            quote_ja:
+              String(
+                formData.get("quote_ja") ||
+                ""
+              ).trim() || null,
+            hobby_vi:
+              String(
+                formData.get("hobby_vi") ||
+                ""
+              ).trim() || null,
+            hobby_en:
+              String(
+                formData.get("hobby_en") ||
+                ""
+              ).trim() || null,
+            hobby_ja:
+              String(
+                formData.get("hobby_ja") ||
+                ""
+              ).trim() || null,
+            color:
+              String(
+                formData.get("color") ||
+                "#cccccc"
+              ).trim(),
+            image_url:
+              await uploadImageIfNeeded(
+                formData
+              ),
+            x_url:
+              String(
+                formData.get("x_url") ||
+                ""
+              ).trim() || null,
+            youtube_url:
+              String(
+                formData.get("youtube_url") ||
+                ""
+              ).trim() || null,
+            tiktok_url:
+              String(
+                formData.get("tiktok_url") ||
+                ""
+              ).trim() || null,
+            sort_order:
+              Number(
+                formData.get(
+                  "sort_order"
+                ) || 0
+              ),
+            is_active:
+              formData.get(
+                "is_active"
               ) === "on"
           };
         }

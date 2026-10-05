@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About Manager — RƎ:ALYZE</title>
+  <title>Inbox — RƎ:ALYZE Admin</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="admin.css">
 </head>
-<body class="admin-page admin-manager-page" data-admin-section="about">
+<body class="admin-page admin-manager-page admin-inbox-page">
 
 <aside class="admin-sidebar">
   <a class="admin-brand" href="admin.html">
@@ -23,8 +23,8 @@
     <a class="admin-nav-link" href="admin-music.html">Music</a>
     <a class="admin-nav-link" href="admin-members.html">Members</a>
     <a class="admin-nav-link" href="admin-rule.html">Rule</a>
-    <a class="admin-nav-link active" href="admin-about.html">About</a>
-    <a class="admin-nav-link" href="admin-inbox.html">Inbox</a>
+    <a class="admin-nav-link" href="admin-about.html">About</a>
+    <a class="admin-nav-link active" href="admin-inbox.html">Inbox</a>
   </nav>
 
   <div class="admin-sidebar-bottom">
@@ -35,33 +35,49 @@
 </aside>
 
 <main class="admin-main">
-  <header class="admin-top">
+  <header class="admin-top inbox-top">
     <div>
       <span>RƎ:ALYZE CMS</span>
-      <h1>About</h1>
-      <p class="admin-page-description">Nội dung trang giới thiệu.</p>
+      <h1>Inbox</h1>
+      <p class="admin-page-description">
+        Thư và góp ý được gửi từ website.
+      </p>
     </div>
-    <button class="admin-primary" id="newItemBtn" type="button">Chỉnh sửa About</button>
+
+    <div class="inbox-actions">
+      <span class="inbox-unread-count" id="inboxUnreadCount">0 chưa đọc</span>
+      <button class="admin-secondary" id="refreshInboxBtn" type="button">Làm mới</button>
+    </div>
   </header>
 
   <div class="cms-admin-warning" id="permissionWarning" hidden></div>
-  <section id="adminList" class="admin-list"></section>
+
+  <section class="inbox-list" id="inboxList">
+    <div class="cms-loading">Loading...</div>
+  </section>
 </main>
 
-<dialog id="editorModal" class="admin-editor-modal">
-  <button class="admin-editor-close" id="editorClose" type="button">×</button>
-  <form id="editorForm">
-    <div id="editorFields"></div>
-    <div class="admin-editor-actions">
-      <button type="button" class="admin-danger" id="deleteBtn" hidden>Xóa</button>
-      <span></span>
-      <button type="button" class="admin-secondary" id="cancelEditor">Hủy</button>
-      <button type="submit" class="admin-primary">Lưu</button>
+<dialog class="admin-editor-modal inbox-dialog" id="letterDialog">
+  <button class="admin-editor-close" id="letterClose" type="button">×</button>
+
+  <div class="inbox-dialog-body">
+    <div class="inbox-letter-meta">
+      <span id="letterDialogDate"></span>
+      <span id="letterDialogRead"></span>
     </div>
-  </form>
+
+    <h2 id="letterDialogName">—</h2>
+
+    <div class="inbox-letter-content" id="letterDialogContent"></div>
+
+    <div class="inbox-dialog-actions">
+      <button class="admin-danger" id="deleteLetterBtn" type="button">Xóa thư</button>
+      <button class="admin-secondary" id="closeLetterBtn" type="button">Đóng</button>
+    </div>
+  </div>
 </dialog>
 
 <script src="admin-runtime.js"></script>
-<script src="admin-page.js"></script>
+<script src="admin-inbox.js"></script>
 </body>
 </html>

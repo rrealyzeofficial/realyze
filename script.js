@@ -28,6 +28,15 @@ const translations = {
     "home.contact_title":"Cùng cộng hưởng với chúng mình.",
     "home.contact_desc":"Theo dõi các kênh chính thức của RƎ:ALYZE.",
 
+    "letter.kicker":"THƯ GỬI NHÓM",
+    "letter.title":"Gửi thư đến RƎ:ALYZE",
+    "letter.desc":"Góp ý, lời nhắn hoặc bất cứ điều gì bạn muốn gửi đến nhóm.",
+    "letter.name":"Tên người gửi",
+    "letter.name_placeholder":"Tên của bạn",
+    "letter.content":"Nội dung",
+    "letter.content_placeholder":"Viết lời nhắn của bạn...",
+    "letter.send":"Gửi thư",
+
     "social.youtube":"YouTube",
     "social.tiktok":"TikTok",
     "social.facebook":"Facebook",
@@ -85,6 +94,15 @@ const translations = {
     "home.contact_kicker":"CONTACT",
     "home.contact_title":"Stay in resonance.",
     "home.contact_desc":"Follow the official RƎ:ALYZE channels.",
+
+    "letter.kicker":"LETTER",
+    "letter.title":"Send a letter to RƎ:ALYZE",
+    "letter.desc":"Feedback, a message, or anything you would like to share with the group.",
+    "letter.name":"Your name",
+    "letter.name_placeholder":"Your name",
+    "letter.content":"Message",
+    "letter.content_placeholder":"Write your message...",
+    "letter.send":"Send letter",
 
     "social.youtube":"YouTube",
     "social.tiktok":"TikTok",
@@ -144,6 +162,15 @@ const translations = {
     "home.contact_title":"私たちと共鳴しよう。",
     "home.contact_desc":"RƎ:ALYZEの公式アカウントをフォローしてください。",
 
+    "letter.kicker":"おたより",
+    "letter.title":"RƎ:ALYZEへメッセージを送る",
+    "letter.desc":"感想、ご意見、メッセージなどをグループへ送れます。",
+    "letter.name":"お名前",
+    "letter.name_placeholder":"お名前",
+    "letter.content":"メッセージ",
+    "letter.content_placeholder":"メッセージを書いてください...",
+    "letter.send":"送信",
+
     "social.youtube":"YouTube",
     "social.tiktok":"TikTok",
     "social.facebook":"Facebook",
@@ -196,17 +223,17 @@ function translatePage(lang){
     if(value !== undefined) el.textContent = value;
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    const value = translations[lang]?.[key] ?? translations.vi[key];
+    if(value !== undefined) el.placeholder = value;
+  });
+
   document.querySelectorAll(".lang-switcher [data-lang]").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 
   document.dispatchEvent(new CustomEvent("realyze-language-changed", { detail: { lang } }));
-
-  // Refresh an open member popup so its text changes immediately too.
-  const modal = document.querySelector("#profileModal");
-  if(modal?.open && modal.dataset.memberKey){
-    openMemberProfile(modal.dataset.memberKey);
-  }
 }
 
 document.querySelectorAll(".lang-switcher [data-lang]").forEach(btn => {
@@ -224,151 +251,5 @@ if(menuBtn && mainNav){
   menuBtn.addEventListener("click", () => mainNav.classList.toggle("open"));
   mainNav.querySelectorAll("a").forEach(a => {
     a.addEventListener("click", () => mainNav.classList.remove("open"));
-  });
-}
-
-/*
-  MEMBER DATA
-  ------------------------------
-  Bạn chỉ cần sửa dữ liệu trong object bên dưới.
-  Link "#" là placeholder, thay bằng link thật của từng thành viên.
-*/
-const memberProfiles = {
-  shota: {
-    name:"Shota", japanese:"ショウタ", romaji:"Shōta",
-    quote:{
-      vi:"Câu giới thiệu của Shota sẽ đặt ở đây.",
-      en:"Shota's self-introduction will be placed here.",
-      ja:"ショウタの自己紹介メッセージをここに入れます。"
-    },
-    birthday:"Chưa cập nhật",
-    hobby:{vi:"Chưa cập nhật", en:"Not updated", ja:"未設定"},
-    color:"#B0D9FA", colorName:"#B0D9FA",
-    image:"assets/members/shota.jpg", x:"#", youtube:"#", tiktok:"#"
-  },
-  vani: {
-    name:"Vani", japanese:"ヴァニ", romaji:"Vani",
-    quote:{
-      vi:"Câu giới thiệu của Vani sẽ đặt ở đây.",
-      en:"Vani's self-introduction will be placed here.",
-      ja:"ヴァニの自己紹介メッセージをここに入れます。"
-    },
-    birthday:"Chưa cập nhật",
-    hobby:{vi:"Chưa cập nhật", en:"Not updated", ja:"未設定"},
-    color:"#F9CDD4", colorName:"#F9CDD4",
-    image:"assets/members/vani.jpg", x:"#", youtube:"#", tiktok:"#"
-  },
-  shoto: {
-    name:"Shoto", japanese:"ショウト", romaji:"Shōto",
-    quote:{vi:"Câu giới thiệu của Shoto sẽ đặt ở đây.",en:"Shoto's self-introduction will be placed here.",ja:"ショウトの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#3A1865",colorName:"#3A1865",image:"assets/members/shoto.jpg",x:"#",youtube:"#",tiktok:"#"
-  },
-  mikon: {
-    name:"Mikon", japanese:"ミコン", romaji:"Mikon",
-    quote:{vi:"Câu giới thiệu của Mikon sẽ đặt ở đây.",en:"Mikon's self-introduction will be placed here.",ja:"ミコンの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#A481C2",colorName:"#A481C2",image:"assets/members/mikon.jpg",x:"#",youtube:"#",tiktok:"#"
-  },
-  elis: {
-    name:"Elis", japanese:"エリス", romaji:"Erisu",
-    quote:{vi:"Câu giới thiệu của Elis sẽ đặt ở đây.",en:"Elis's self-introduction will be placed here.",ja:"エリスの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#940912",colorName:"#940912",image:"assets/members/elis.jpg",x:"#",youtube:"#",tiktok:"#"
-  },
-  hikari: {
-    name:"Hikari", japanese:"ヒカリ", romaji:"Hikari",
-    quote:{vi:"Câu giới thiệu của Hikari sẽ đặt ở đây.",en:"Hikari's self-introduction will be placed here.",ja:"ヒカリの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#E0115F",colorName:"#E0115F",image:"assets/members/hikari.jpg",x:"#",youtube:"#",tiktok:"#"
-  },
-  ebi: {
-    name:"Ebi", japanese:"エビ", romaji:"Ebi",
-    quote:{vi:"Câu giới thiệu của Ebi sẽ đặt ở đây.",en:"Ebi's self-introduction will be placed here.",ja:"エビの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#97A2FF",colorName:"#97A2FF",image:"assets/members/ebi.jpg",x:"#",youtube:"#",tiktok:"#"
-  },
-  zanith: {
-    name:"Zanith", japanese:"ザニス", romaji:"Zanisu",
-    quote:{vi:"Câu giới thiệu của Zanith sẽ đặt ở đây.",en:"Zanith's self-introduction will be placed here.",ja:"ザニスの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#66C1FF",colorName:"#66C1FF",image:"assets/members/zanith.jpg",x:"#",youtube:"#",tiktok:"#"
-  },
-  eclia: {
-    name:"Eclia", japanese:"エクリア", romaji:"Ekuria",
-    quote:{vi:"Câu giới thiệu của Eclia sẽ đặt ở đây.",en:"Eclia's self-introduction will be placed here.",ja:"エクリアの自己紹介メッセージをここに入れます。"},
-    birthday:"Chưa cập nhật", hobby:{vi:"Chưa cập nhật",en:"Not updated",ja:"未設定"},
-    color:"#FFCDCD",colorName:"#FFCDCD",image:"assets/members/eclia.jpg",x:"#",youtube:"#",tiktok:"#"
-  }
-};
-
-const profileModal = document.querySelector("#profileModal");
-const profileClose = document.querySelector("#profileClose");
-
-const fields = {
-  image: document.querySelector("#profileImage"),
-  name: document.querySelector("#profileName"),
-  japanese: document.querySelector("#profileJapanese"),
-  romaji: document.querySelector("#profileRomaji"),
-  quote: document.querySelector("#profileQuote"),
-  birthday: document.querySelector("#profileBirthday"),
-  hobby: document.querySelector("#profileHobby"),
-  color: document.querySelector("#profileColor"),
-  colorDot: document.querySelector("#profileColorDot"),
-  x: document.querySelector("#profileX"),
-  youtube: document.querySelector("#profileYT"),
-  tiktok: document.querySelector("#profileTT")
-};
-
-function openMemberProfile(key){
-  const p = memberProfiles[key];
-  if(!p || !profileModal) return;
-
-  fields.image.src = p.image;
-  fields.image.alt = p.name;
-  fields.name.textContent = p.name;
-  fields.japanese.textContent = p.japanese;
-  fields.romaji.textContent = p.romaji;
-  fields.quote.textContent = `“${p.quote?.[currentLanguage] ?? p.quote?.vi ?? p.quote}”`;
-  fields.birthday.textContent = p.birthday;
-  fields.hobby.textContent = p.hobby?.[currentLanguage] ?? p.hobby?.vi ?? p.hobby;
-  fields.color.textContent = p.colorName;
-  fields.colorDot.style.background = p.color;
-
-  fields.x.href = p.x;
-  fields.youtube.href = p.youtube;
-  fields.tiktok.href = p.tiktok;
-
-  profileModal.dataset.memberKey = key;
-  if(!profileModal.open) profileModal.showModal();
-}
-
-document.querySelectorAll(".member-card[data-member]").forEach(card => {
-  const key = card.dataset.member;
-
-  card.addEventListener("click", () => openMemberProfile(key));
-
-  card.addEventListener("keydown", e => {
-    if(e.key === "Enter" || e.key === " "){
-      e.preventDefault();
-      openMemberProfile(key);
-    }
-  });
-});
-
-if(profileClose){
-  profileClose.addEventListener("click", () => profileModal.close());
-}
-
-if(profileModal){
-  profileModal.addEventListener("click", e => {
-    const r = profileModal.getBoundingClientRect();
-    const outside =
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom;
-
-    if(outside) profileModal.close();
   });
 }

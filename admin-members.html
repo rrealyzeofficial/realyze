@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About Manager — RƎ:ALYZE</title>
+  <title>Members Manager — RƎ:ALYZE</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="admin.css">
 </head>
-<body class="admin-page admin-manager-page" data-admin-section="about">
+<body class="admin-page admin-manager-page" data-admin-section="members">
 
 <aside class="admin-sidebar">
   <a class="admin-brand" href="admin.html">
@@ -21,9 +21,9 @@
   <nav>
     <a class="admin-nav-link" href="admin-news.html">News</a>
     <a class="admin-nav-link" href="admin-music.html">Music</a>
-    <a class="admin-nav-link" href="admin-members.html">Members</a>
+    <a class="admin-nav-link active" href="admin-members.html">Members</a>
     <a class="admin-nav-link" href="admin-rule.html">Rule</a>
-    <a class="admin-nav-link active" href="admin-about.html">About</a>
+    <a class="admin-nav-link" href="admin-about.html">About</a>
     <a class="admin-nav-link" href="admin-inbox.html">Inbox</a>
   </nav>
 
@@ -38,10 +38,10 @@
   <header class="admin-top">
     <div>
       <span>RƎ:ALYZE CMS</span>
-      <h1>About</h1>
-      <p class="admin-page-description">Nội dung trang giới thiệu.</p>
+      <h1>Members</h1>
+      <p class="admin-page-description">Thông tin hiển thị của từng thành viên.</p>
     </div>
-    <button class="admin-primary" id="newItemBtn" type="button">Chỉnh sửa About</button>
+    <button class="admin-primary" id="newItemBtn" type="button" hidden>+ Thêm mới</button>
   </header>
 
   <div class="cms-admin-warning" id="permissionWarning" hidden></div>

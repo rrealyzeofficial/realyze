@@ -55,65 +55,10 @@
     <div class="section-head">
       <small data-i18n="home.member_kicker">MEMBER</small>
       <h2 data-i18n="home.member_title">Meet the members</h2>
-      <p data-i18n="home.member_desc">9 thành viên, 9 màu sắc riêng cùng tạo nên RƎ:ALYZE.</p>
+      <p id="memberSectionDesc">9 thành viên, 9 màu sắc riêng cùng tạo nên RƎ:ALYZE.</p>
     </div>
     <div class="member-wrap">
-      <div class="member-grid">
-<article class="member-card" data-member="shota" tabindex="0" role="button" aria-label="Xem thông tin Shota">
-      <div class="member-photo-wrap">
-        <img src="assets/members/shota.jpg" alt="Shota">
-      </div>
-      <div class="member-info"><h3>Shota</h3><span style="background:#B0D9FA"></span></div>
-    </article>
-<article class="member-card" data-member="vani" tabindex="0" role="button" aria-label="Xem thông tin Vani">
-      <div class="member-photo-wrap">
-        <img src="assets/members/vani.jpg" alt="Vani">
-      </div>
-      <div class="member-info"><h3>Vani</h3><span style="background:#F9CDD4"></span></div>
-    </article>
-<article class="member-card" data-member="shoto" tabindex="0" role="button" aria-label="Xem thông tin Shoto">
-      <div class="member-photo-wrap">
-        <img src="assets/members/shoto.jpg" alt="Shoto">
-      </div>
-      <div class="member-info"><h3>Shoto</h3><span style="background:#3A1865"></span></div>
-    </article>
-<article class="member-card" data-member="mikon" tabindex="0" role="button" aria-label="Xem thông tin Mikon">
-      <div class="member-photo-wrap">
-        <img src="assets/members/mikon.jpg" alt="Mikon">
-      </div>
-      <div class="member-info"><h3>Mikon</h3><span style="background:#A481C2"></span></div>
-    </article>
-<article class="member-card" data-member="elis" tabindex="0" role="button" aria-label="Xem thông tin Elis">
-      <div class="member-photo-wrap">
-        <img src="assets/members/elis.jpg" alt="Elis">
-      </div>
-      <div class="member-info"><h3>Elis</h3><span style="background:#940912"></span></div>
-    </article>
-<article class="member-card" data-member="hikari" tabindex="0" role="button" aria-label="Xem thông tin Hikari">
-      <div class="member-photo-wrap">
-        <img src="assets/members/hikari.jpg" alt="Hikari">
-      </div>
-      <div class="member-info"><h3>Hikari</h3><span style="background:#E0115F"></span></div>
-    </article>
-<article class="member-card" data-member="ebi" tabindex="0" role="button" aria-label="Xem thông tin Ebi">
-      <div class="member-photo-wrap">
-        <img src="assets/members/ebi.jpg" alt="Ebi">
-      </div>
-      <div class="member-info"><h3>Ebi</h3><span style="background:#97A2FF"></span></div>
-    </article>
-<article class="member-card" data-member="zanith" tabindex="0" role="button" aria-label="Xem thông tin Zanith">
-      <div class="member-photo-wrap">
-        <img src="assets/members/zanith.jpg" alt="Zanith">
-      </div>
-      <div class="member-info"><h3>Zanith</h3><span style="background:#66C1FF"></span></div>
-    </article>
-<article class="member-card" data-member="eclia" tabindex="0" role="button" aria-label="Xem thông tin Eclia">
-      <div class="member-photo-wrap">
-        <img src="assets/members/eclia.jpg" alt="Eclia">
-      </div>
-      <div class="member-info"><h3>Eclia</h3><span style="background:#FFCDCD"></span></div>
-    </article>
-      </div>
+      <div class="member-grid" id="dynamicMemberGrid"></div>
     </div>
   </section>
 
@@ -127,19 +72,129 @@
     </div>
   </section>
 
+
+  <section class="youtube-feature" id="youtube">
+    <div class="youtube-feature-overlay"></div>
+
+    <div class="youtube-feature-inner">
+      <div class="youtube-feature-head">
+        <h2>YouTube</h2>
+        <span>動画</span>
+
+        <div class="youtube-shooting-star" aria-hidden="true">
+          <i></i>
+          <b>✦</b>
+          <i></i>
+        </div>
+      </div>
+
+      <div class="youtube-carousel" id="youtubeCarousel">
+        <div class="youtube-track" id="youtubeTrack"></div>
+      </div>
+
+      <div class="youtube-pagination" id="youtubePagination" aria-label="YouTube slider"></div>
+    </div>
+  </section>
+
   <section class="home-section section-rule" id="contact">
-    <div class="contact-box">
-      <small style="color:var(--accent);font-weight:900;letter-spacing:.18em" data-i18n="home.contact_kicker">CONTACT</small>
+    <div class="contact-box contact-box-clean">
+      <small class="contact-kicker" data-i18n="home.contact_kicker">CONTACT</small>
       <h2 data-i18n="home.contact_title">Stay in resonance.</h2>
       <p data-i18n="home.contact_desc">Theo dõi các kênh chính thức của RƎ:ALYZE.</p>
-      <div class="social-list">
-        <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt=""><span data-i18n="social.youtube">YouTube</span></a>
-        <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""><span data-i18n="social.tiktok">TikTok</span></a>
-        <a href="https://www.facebook.com/profile.php?id=61594453856454" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt=""><span data-i18n="social.facebook">Facebook</span></a>
-        <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><img src="assets/icons/x.svg" alt=""><span data-i18n="social.x">X</span></a>
+
+      <div class="social-list social-list-clean">
+        <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <img src="assets/icons/youtube.svg" alt="">
+          <span data-i18n="social.youtube">YouTube</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <img src="assets/icons/tiktok.svg" alt="">
+          <span data-i18n="social.tiktok">TikTok</span>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61594453856454" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <img src="assets/icons/facebook.svg" alt="">
+          <span data-i18n="social.facebook">Facebook</span>
+        </a>
+
+        <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+          <img src="assets/icons/x.svg" alt="">
+          <span data-i18n="social.x">X</span>
+        </a>
+
+        <button class="social-mail-button" id="letterOpen" type="button" aria-label="Send a letter">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3.75 6.75h16.5v10.5H3.75z"></path>
+            <path d="m4.5 7.5 7.5 5.25 7.5-5.25"></path>
+          </svg>
+          <span>Mail</span>
+        </button>
       </div>
     </div>
   </section>
+
+  <dialog class="letter-dialog" id="letterDialog">
+    <div class="letter-dialog-shell">
+      <button class="letter-dialog-close" id="letterClose" type="button" aria-label="Close">×</button>
+
+      <form class="letter-card letter-card-popup" id="letterForm" novalidate>
+        <div class="letter-head">
+          <small data-i18n="letter.kicker">LETTER</small>
+          <h3 data-i18n="letter.title">Gửi thư đến RƎ:ALYZE</h3>
+          <p data-i18n="letter.desc">Góp ý, lời nhắn hoặc bất cứ điều gì bạn muốn gửi đến nhóm.</p>
+        </div>
+
+        <label class="letter-field">
+          <span data-i18n="letter.name">Tên người gửi</span>
+          <input
+            id="letterName"
+            name="sender_name"
+            type="text"
+            maxlength="80"
+            required
+            autocomplete="name"
+            data-i18n-placeholder="letter.name_placeholder"
+            placeholder="Tên của bạn"
+          >
+        </label>
+
+        <label class="letter-field">
+          <span data-i18n="letter.content">Nội dung</span>
+          <textarea
+            id="letterContent"
+            name="content"
+            maxlength="3000"
+            required
+            rows="5"
+            data-i18n-placeholder="letter.content_placeholder"
+            placeholder="Viết lời nhắn của bạn..."
+          ></textarea>
+        </label>
+
+        <input
+          class="letter-honeypot"
+          id="letterWebsite"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        >
+
+        <div class="letter-captcha-wrap">
+          <div id="letterCaptcha"></div>
+        </div>
+
+        <button class="letter-submit" id="letterSubmit" type="submit">
+          <span data-i18n="letter.send">Gửi thư</span>
+          <b>↗</b>
+        </button>
+
+        <p class="letter-status" id="letterStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </dialog>
 </main>
 
 
@@ -204,5 +259,7 @@
 <script src="script.js"></script>
 
 <script src="site-data.js"></script>
+<script src="feedback-config.js"></script>
+<script src="feedback.js"></script>
 </body>
 </html>
