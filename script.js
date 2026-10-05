@@ -71,6 +71,13 @@ const translations = {
     "rule.r3_title":"Cộng đồng",
     "rule.r3_body":"Không gây tranh cãi, công kích hoặc tạo nội dung làm ảnh hưởng đến thành viên và cộng đồng.",
 
+    "footer.letter":"THƯ",
+    "footer.privacy":"CHÍNH SÁCH BẢO MẬT",
+
+    "privacy.kicker":"CHÍNH SÁCH BẢO MẬT",
+    "privacy.title":"Chính sách bảo mật",
+    "privacy.desc":"Quyền sở hữu và sử dụng nội dung của RƎ:ALYZE.",
+
     "footer.back":"VỀ ĐẦU TRANG ↑"
   },
 
@@ -138,6 +145,13 @@ const translations = {
     "rule.r3_title":"Community",
     "rule.r3_body":"Avoid harassment, personal attacks, or content that may negatively affect members or the community.",
 
+    "footer.letter":"LETTER",
+    "footer.privacy":"PRIVACY POLICY",
+
+    "privacy.kicker":"PRIVACY POLICY",
+    "privacy.title":"Privacy Policy",
+    "privacy.desc":"Ownership and use of RƎ:ALYZE content.",
+
     "footer.back":"BACK TO TOP ↑"
   },
 
@@ -204,6 +218,13 @@ const translations = {
     "rule.r2_body":"RƎ:ALYZEのコンテンツを再投稿・使用する場合は、グループのルールに従って適切なクレジットを記載してください。",
     "rule.r3_title":"コミュニティ",
     "rule.r3_body":"メンバーやコミュニティに悪影響を与えるような攻撃、誹謗中傷、トラブルにつながる行為は避けてください。",
+
+    "footer.letter":"おたより",
+    "footer.privacy":"プライバシーポリシー",
+
+    "privacy.kicker":"プライバシーポリシー",
+    "privacy.title":"プライバシーポリシー",
+    "privacy.desc":"RƎ:ALYZEのコンテンツに関する権利と利用について。",
 
     "footer.back":"ページ上部へ ↑"
   }

@@ -591,4 +591,39 @@
   );
 
   loadTurnstile();
+
+  const urlParams =
+    new URLSearchParams(
+      location.search
+    );
+
+  if (
+    urlParams.get("letter") === "1"
+  ) {
+    setTimeout(
+      function () {
+        openLetterDialog();
+
+        try {
+          const cleanUrl =
+            new URL(
+              location.href
+            );
+
+          cleanUrl.searchParams.delete(
+            "letter"
+          );
+
+          history.replaceState(
+            null,
+            "",
+            cleanUrl.pathname +
+              cleanUrl.search +
+              cleanUrl.hash
+          );
+        } catch {}
+      },
+      180
+    );
+  }
 })();

@@ -12,8 +12,15 @@
 </head>
 <body id="top">
 <header class="topbar">
-  <a class="logo" href="index.html" aria-label="RƎ:ALYZE"><img src="assets/realyze-logo.png" alt="RƎ:ALYZE"></a>
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span></button>
+  <a class="logo" href="index.html" aria-label="RƎ:ALYZE">
+    <img src="assets/realyze-logo.png" alt="RƎ:ALYZE">
+  </a>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">
+    <span></span>
+    <span></span>
+  </button>
+
   <nav class="main-nav" id="mainNav">
     <a href="index.html" data-i18n="nav.top">TOP</a>
     <a href="index.html#members" data-i18n="nav.member">MEMBER</a>
@@ -22,32 +29,83 @@
     <a href="rule.html" data-i18n="nav.rule">RULE</a>
     <a href="index.html#news" data-i18n="nav.news">NEWS</a>
     <a href="index.html#contact" data-i18n="nav.contact">CONTACT</a>
+
+    <div class="nav-mobile-tools">
+      <a class="nav-mobile-admin" href="admin.html">ADMIN</a>
+
+      <div class="nav-mobile-socials" aria-label="Official social links">
+        <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="assets/icons/x.svg" alt="">
+        </a>
+        <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <img src="assets/icons/youtube.svg" alt="">
+        </a>
+        <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <img src="assets/icons/tiktok.svg" alt="">
+        </a>
+      </div>
+    </div>
   </nav>
+
   <div class="lang-switcher" aria-label="Language">
     <button type="button" data-lang="vi" class="active">VI</button>
     <button type="button" data-lang="en">EN</button>
     <button type="button" data-lang="ja">JP</button>
   </div>
+
   <a class="admin-entry" href="admin.html" aria-label="Admin">ADMIN</a>
-  <div class="header-socials">
-    <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="assets/icons/x.svg" alt=""></a>
-    <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt=""></a>
-    <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""></a>
+
+  <div class="header-socials" aria-label="Official social links">
+    <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X">
+      <img src="assets/icons/x.svg" alt="">
+    </a>
+    <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <img src="assets/icons/youtube.svg" alt="">
+    </a>
+    <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <img src="assets/icons/tiktok.svg" alt="">
+    </a>
   </div>
 </header>
 <main>
   <section class="page-hero compact-page-hero">
-    <small>NEWS</small>
-    <h1>News</h1>
+    <small data-i18n="nav.news">NEWS</small>
+    <h1 data-i18n="nav.news">NEWS</h1>
   </section>
   <section class="content-shell" id="newsDetail">
     <div class="cms-loading">Loading...</div>
   </section>
 </main>
-<footer>
-  <div class="footer-logo"><img src="assets/realyze-logo.png" alt="RƎ:ALYZE"></div>
-  <div>© 2026 RƎ:ALYZE</div>
-  <a href="#top" data-i18n="footer.back">BACK TO TOP ↑</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a class="site-footer-logo" href="index.html" aria-label="RƎ:ALYZE">
+      <img src="assets/realyze-logo.png" alt="RƎ:ALYZE">
+    </a>
+
+    <div class="site-footer-socials" aria-label="Official social links">
+      <a href="https://x.com/RLZ__official" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="assets/icons/x.svg" alt="">
+      </a>
+      <a href="https://www.youtube.com/@realize-ent" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <img src="assets/icons/youtube.svg" alt="">
+      </a>
+      <a href="https://www.tiktok.com/@realyzefromrlt" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <img src="assets/icons/tiktok.svg" alt="">
+      </a>
+    </div>
+
+    <nav class="site-footer-nav" aria-label="Footer">
+      <a href="index.html" data-i18n="nav.top">TRANG CHỦ</a>
+      <a href="about.html" data-i18n="nav.about">GIỚI THIỆU</a>
+      <a href="rule.html" data-i18n="nav.rule">QUY TẮC</a>
+      <a href="index.html?letter=1#contact" data-i18n="footer.letter">THƯ</a>
+      <a href="privacy.html" data-i18n="footer.privacy">CHÍNH SÁCH BẢO MẬT</a>
+    </nav>
+
+    <div class="site-footer-copy">
+      © RƎ:ALYZE
+    </div>
+  </div>
 </footer>
 <script src="script.js"></script>
 <script src="site-data.js"></script>

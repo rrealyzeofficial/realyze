@@ -24,8 +24,27 @@
 
   function langField(item, base) {
     const lang = currentLang();
+
+    if (lang === "vi") {
+      return (
+        item[base + "_vi"] ||
+        item[base] ||
+        ""
+      );
+    }
+
+    if (lang === "en") {
+      return (
+        item[base + "_en"] ||
+        item[base + "_vi"] ||
+        item[base] ||
+        ""
+      );
+    }
+
     return (
-      item[base + "_" + lang] ||
+      item[base + "_ja"] ||
+      item[base + "_en"] ||
       item[base + "_vi"] ||
       item[base] ||
       ""
