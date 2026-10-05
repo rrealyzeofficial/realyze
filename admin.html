@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RƎ:ALYZE Admin</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+
+<section class="admin-login" id="loginView">
+  <div class="admin-login-card">
+    <img src="assets/realyze-logo.png" alt="RƎ:ALYZE">
+    <h1>Admin Login</h1>
+    <p>Đăng nhập tài khoản quản trị của RƎ:ALYZE.</p>
+
+    <form id="loginForm">
+      <label>
+        Email
+        <input id="loginEmail" type="email" value="admin@realyze.com" required autocomplete="email">
+      </label>
+      <label>
+        Password
+        <input id="loginPassword" type="password" required autocomplete="current-password">
+      </label>
+      <button class="admin-primary" id="loginBtn" type="submit">Đăng nhập</button>
+      <p class="admin-error" id="loginError"></p>
+
+      <div id="supabaseSetup" hidden style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line)">
+        <p style="text-align:left;margin:0 0 12px;color:var(--muted);font-size:.78rem">
+          Không tự đọc được cấu hình Supabase. Nhập 2 giá trị này một lần:
+        </p>
+        <label>
+          Project URL
+          <input id="setupUrl" type="url" placeholder="https://xxxxx.supabase.co">
+        </label>
+        <label>
+          Anon / Publishable key
+          <input id="setupKey" type="text" placeholder="eyJ...">
+        </label>
+        <button class="admin-secondary" id="saveSetupBtn" type="button" style="width:100%">
+          Lưu cấu hình Supabase
+        </button>
+      </div>
+    </form>
+
+    <a class="admin-back-site" href="index.html">← Quay lại website</a>
+  </div>
+</section>
+
+<section class="admin-dashboard" id="dashboardView" hidden>
+  <header class="admin-dashboard-header">
+    <a href="index.html"><img src="assets/realyze-logo.png" alt="RƎ:ALYZE"></a>
+    <div>
+      <span id="adminEmail">admin@realyze.com</span>
+      <button id="logoutBtn" type="button">Đăng xuất</button>
+    </div>
+  </header>
+
+  <main class="admin-dashboard-main">
+    <p class="admin-dashboard-kicker">RƎ:ALYZE CMS</p>
+    <h1>Chọn nội dung muốn quản lý</h1>
+    <p>Mỗi phần giờ được tách thành một trang riêng.</p>
+
+    <div class="admin-dashboard-grid">
+      <a class="admin-dashboard-card" href="admin-news.html">
+        <span>01</span>
+        <strong>News</strong>
+        <p>Thêm, sửa, xóa tin tức và ảnh bài viết.</p>
+        <b>OPEN →</b>
+      </a>
+
+      <a class="admin-dashboard-card" href="admin-music.html">
+        <span>02</span>
+        <strong>Music</strong>
+        <p>Quản lý bài hát, người hát, ngày ra mắt, ảnh và link.</p>
+        <b>OPEN →</b>
+      </a>
+
+      <a class="admin-dashboard-card" href="admin-rule.html">
+        <span>03</span>
+        <strong>Rule</strong>
+        <p>Soạn Rule với cỡ chữ lớn/nhỏ, đậm, nghiêng và danh sách.</p>
+        <b>OPEN →</b>
+      </a>
+    </div>
+
+    <div class="cms-admin-warning" id="permissionWarning" hidden></div>
+  </main>
+</section>
+
+<script src="admin-runtime.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  const form = document.getElementById("loginForm");
+  const email = document.getElementById("loginEmail");
+  const password = document.getElementById("loginPassword");
+  const loginBtn = document.getElementById("loginBtn");
+  const errorBox = document.getElementById("loginError");
+  const status = document.getElementById("passwordStatus");
+  const loginView = document.getElementById("loginView");
+  const dashboard = document.getElementById("dashboardView");
+  const setup = document.getElementById("supabaseSetup");
+
+  function setStatus(type, text) {
+    status.className = "password-status password-status-" + type;
+    status.innerHTML =
+      '<span class="password-status-dot"></span>' +
+      '<span>' + text + '</span>';
+  }
+
+  function showDashboard(user) {
+    loginView.hidden = true;
+    dashboard.hidden = false;
+    document.getElementById("adminEmail").textContent =
+      user.email || "admin@realyze.com";
+  }
+
+  async function prepareConfig() {
+    if (RealyzeAdmin.hasConfig()) return true;
+
+    const imported =
+      await RealyzeAdmin.tryImportExistingConfig();
+
+    if (imported) return true;
+
+    setup.hidden = false;
+    setStatus(
+      "warning",
+      "⚠ Cần cấu hình Supabase trước khi kiểm tra mật khẩu"
+    );
+    return false;
+  }
+
+  document.getElementById("saveSetupBtn")
+    .addEventListener("click", function () {
+      const url = document.getElementById("setupUrl").value;
+      const key = document.getElementById("setupKey").value;
+
+      RealyzeAdmin.saveConfig(url, key);
+
+      if (RealyzeAdmin.hasConfig()) {
+        setup.hidden = true;
+        errorBox.textContent = "";
+        setStatus(
+          "idle",
+          "Đã lưu Supabase — nhập mật khẩu để kiểm tra"
+        );
+      } else {
+        errorBox.textContent =
+          "Project URL hoặc anon key chưa hợp lệ.";
+      }
+    });
+
+  password.addEventListener("input", function () {
+    if (!password.value) {
+      setStatus("idle", "Trạng thái mật khẩu: chưa nhập");
+    } else {
+      setStatus(
+        "checking",
+        "Đã nhập mật khẩu — bấm Đăng nhập để kiểm tra"
+      );
+    }
+  });
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    errorBox.textContent = "";
+
+    if (!await prepareConfig()) return;
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Đang đăng nhập...";
+    setStatus(
+      "checking",
+      "Đang gửi mật khẩu đến Supabase để kiểm tra..."
+    );
+
+    const result = await RealyzeAdmin.signIn(
+      email.value,
+      password.value
+    );
+
+    loginBtn.disabled = false;
+    loginBtn.textContent = "Đăng nhập";
+
+    if (!result.ok) {
+      if (result.code === "invalid_credentials") {
+        setStatus("wrong", "✕ Mật khẩu sai");
+      } else if (result.code === "email_not_confirmed") {
+        setStatus("warning", "⚠ Email chưa được xác nhận");
+      } else if (result.code === "network") {
+        setStatus("warning", "⚠ Không kết nối được Supabase");
+      } else {
+        setStatus("warning", "⚠ Đăng nhập chưa thành công");
+      }
+
+      errorBox.textContent = result.error || "";
+      return;
+    }
+
+    setStatus("correct", "✓ Mật khẩu đúng");
+
+    await new Promise(function (resolve) {
+      setTimeout(resolve, 450);
+    });
+
+    showDashboard(result.user);
+
+    const permission =
+      await RealyzeAdmin.checkAdminPermission();
+
+    if (!permission.ok) {
+      const warning =
+        document.getElementById("permissionWarning");
+
+      warning.hidden = false;
+      warning.innerHTML =
+        "<b>Auth đã đăng nhập thành công.</b><br>" +
+        "Nhưng quyền database chưa sẵn sàng: " +
+        permission.error +
+        "<br>Hãy chạy <b>admin-access-fix.sql</b>.";
+    }
+  });
+
+  document.getElementById("logoutBtn")
+    .addEventListener("click", async function () {
+      await RealyzeAdmin.signOut();
+      location.reload();
+    });
+
+  (async function init() {
+    await prepareConfig();
+
+    try {
+      const session = await RealyzeAdmin.getSession();
+
+      if (
+        session &&
+        session.user &&
+        String(session.user.email || "").toLowerCase() ===
+          RealyzeAdmin.ADMIN_EMAIL
+      ) {
+        showDashboard(session.user);
+      }
+    } catch (error) {
+      console.warn(error);
+    }
+  })();
+})();
+</script>
+
+
+<script>
+(function () {
+  if (location.protocol === "file:") {
+    document.addEventListener("DOMContentLoaded", function () {
+      var loginBtn = document.getElementById("loginBtn");
+      var errorBox = document.getElementById("loginError");
+      var status = document.getElementById("passwordStatus");
+
+      if (loginBtn) {
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Hãy mở bằng localhost";
+      }
+
+      if (status) {
+        status.className = "password-status password-status-warning";
+        status.innerHTML =
+          '<span class="password-status-dot"></span>' +
+          '<span>⚠ Bạn đang mở web bằng file:// — Supabase không thể đăng nhập ổn định.</span>';
+      }
+
+      if (errorBox) {
+        errorBox.innerHTML =
+          'Hãy đóng tab này, sau đó chạy <b>START_LOCALHOST.bat</b> và mở ' +
+          '<b>http://localhost:5500/admin.html</b>.';
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
