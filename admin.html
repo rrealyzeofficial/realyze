@@ -29,6 +29,11 @@
         <input id="loginPassword" type="password" required autocomplete="current-password">
       </label>
       <button class="admin-primary" id="loginBtn" type="submit">Đăng nhập</button>
+
+      <div class="password-status password-status-idle" id="passwordStatus">
+        <span class="password-status-dot"></span>
+        <span>Trạng thái mật khẩu: chưa kiểm tra</span>
+      </div>
       <p class="admin-error" id="loginError"></p>
 
       <div id="supabaseSetup" hidden style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line)">
@@ -110,6 +115,11 @@
   const setup = document.getElementById("supabaseSetup");
 
   function setStatus(type, text) {
+    if (!status) {
+      console.warn("Missing #passwordStatus element");
+      return;
+    }
+
     status.className = "password-status password-status-" + type;
     status.innerHTML =
       '<span class="password-status-dot"></span>' +
@@ -255,37 +265,6 @@
       console.warn(error);
     }
   })();
-})();
-</script>
-
-
-<script>
-(function () {
-  if (location.protocol === "file:") {
-    document.addEventListener("DOMContentLoaded", function () {
-      var loginBtn = document.getElementById("loginBtn");
-      var errorBox = document.getElementById("loginError");
-      var status = document.getElementById("passwordStatus");
-
-      if (loginBtn) {
-        loginBtn.disabled = true;
-        loginBtn.textContent = "Hãy mở bằng localhost";
-      }
-
-      if (status) {
-        status.className = "password-status password-status-warning";
-        status.innerHTML =
-          '<span class="password-status-dot"></span>' +
-          '<span>⚠ Bạn đang mở web bằng file:// — Supabase không thể đăng nhập ổn định.</span>';
-      }
-
-      if (errorBox) {
-        errorBox.innerHTML =
-          'Hãy đóng tab này, sau đó chạy <b>START_LOCALHOST.bat</b> và mở ' +
-          '<b>http://localhost:5500/admin.html</b>.';
-      }
-    });
-  }
 })();
 </script>
 
